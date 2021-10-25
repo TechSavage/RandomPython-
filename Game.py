@@ -1,4 +1,5 @@
 import os
+import pyfiglet
 
 marshall = {'name': 'Marshall','points': 12, 'cash': 1000, 'health': 10, 'wit': 0, 'imagination': 0, 'trust': 3, 'respect': 6, 'intimidation': 0, 'description': 'Marshall -- A Hustler familiar with the city  \n\n              Health: 10 Cash: 1000\n              Stat Points:12 Trust:3 Respect:6'}
 taylor = {'name': 'Taylor','points': 15, 'cash': 500, 'health': 10, 'wit': 0, 'imagination': 0, 'trust': 4, 'respect': 5, 'intimidation': 0, 'description': 'Taylor -- A Mechanic going through a rough time\n\n              Health: 10 Cash: 500\n              Stat Points:15 Trust:4 Respect:5'}
@@ -10,7 +11,10 @@ playerMain = ''
 days_remaining = 15
 
 def story():
-	print("AMERICA! FUCK YEA!")
+	title1 = pyfiglet.figlet_format("AMERICA!\nFUCK YEA!", font = "small")
+	print("========================================")
+	print(title1)
+	print("========================================")
 def intro():
 	print(" =========_______________")
 	print("/ PLAYERS \\--------------") 
@@ -41,12 +45,13 @@ def intro():
 		print("-----------------------------\n")
 		intro()
 
-
 #def bs (wit,imagination):
 #	if wit >  6:
 #	if imagination > 6 :
 #def events():
-#def dice_hustle():
+#def card_hustle():
+#	title1 = pyfiglet.figlet_format("K", font = "cards")
+
 
 def initializePlayer(player_choice):
 	global playerMain
