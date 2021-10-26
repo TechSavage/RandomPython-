@@ -10,14 +10,35 @@ playerListName = [marshall['description'],taylor['description'],sullivan['descri
 playerMain = ''
 days_remaining = 15
 
-def story():
-	title1 = pyfiglet.figlet_format("AMERICA!\nFUCK YEA!", font = "small")
-	print("========================================")
+#Thinking about making a different beggining for each player. This one would be for Taylor
+def begining():
+	os.system('cls' if os.name == 'nt' else 'clear')
+	title1 = pyfiglet.figlet_format("STOP\nDROP\nHUSTLE", font = "rectangles")
+	print("====================================================================")
 	print(title1)
-	print("========================================")
-def intro():
+	print("====================================================================")
+	print(f"You are {playerMain['name']}. Alone and without desire.")
+	print("The heaping stack of heated reviews and cold bills is pilling fast")
+	print("drenching the passion of your heart and soul: Taylor's Auto")
+	print(f'You have {days_remaining} to pay your "bills"... You can\'t fuck this up.')
+	print("====================================================================\n")
+
+#	story()
+
+
+#===============scratch_Ideas===============
+#def story():
+#def bs (wit,imagination):
+#	if wit >  6:
+#	if imagination > 6 :
+#def events():
+#def card_hustle():
+#	title1 = pyfiglet.figlet_format("K", font = "cards")
+#===============scratch_Ideas===============
+
+def player_picker():
 	print(" =========_______________")
-	print("/ PLAYERS \\--------------") 
+	print("/ PLAYERS \\--------------")
 	for n in playerListName:
 		print("===============================================================")
 		print("/// " + f"({playerListName.index(n) + 1})" +"  ---  " f"{n}")
@@ -29,7 +50,7 @@ def intro():
 		print("----------------------------------------")		
 		print("Not a valid choice! Must enter a number!")
 		print("----------------------------------------\n")
-		intro()
+		player_picker()
 	elif int(choice) >= 1 and int(choice) <= len(playerListName):
 		initializePlayer(choice)
 	elif int(choice) > len(playerListName) or int(choice) < 1:
@@ -37,20 +58,14 @@ def intro():
 		print("-----------------------------")		
 		print("Not a valid character number!")
 		print("-----------------------------\n")
-		intro()
+		player_picker()
 	else:
 		os.system('cls' if os.name == 'nt' else 'clear')
 		print("-----------------------------")
 		print("Error. Try again")		
 		print("-----------------------------\n")
-		intro()
+		player_picker()
 
-#def bs (wit,imagination):
-#	if wit >  6:
-#	if imagination > 6 :
-#def events():
-#def card_hustle():
-#	title1 = pyfiglet.figlet_format("K", font = "cards")
 
 
 def initializePlayer(player_choice):
@@ -99,7 +114,7 @@ def update_stats():
 		elif playerMain['points'] == 0:
 			os.system('cls' if os.name == 'nt' else 'clear')
 			print("Out of points")
-			#story()
+			#begining()
 			return
 		else:
 			os.system('cls' if os.name == 'nt' else 'clear')
@@ -123,7 +138,7 @@ def update_stats():
 			update_stats() 
 		elif int(cont_1) == 1:
 			os.system('cls' if os.name == 'nt' else 'clear')
-			#story()
+			#begining()
 			return
 		elif int(cont_1) == 2:
 			os.system('cls' if os.name == 'nt' else 'clear')
@@ -144,9 +159,9 @@ def update_stats():
 
 
 def main():
-	story()
+	begining()
 
 os.system('cls' if os.name == 'nt' else 'clear')
 #main()
-intro()
+player_picker()
 main()
