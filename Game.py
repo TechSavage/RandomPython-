@@ -9,6 +9,7 @@ playerList = [marshall,taylor,sullivan]
 playerListName = [marshall['description'],taylor['description'],sullivan['description']]
 playerMain = ''
 days_remaining = 15
+amount_due = float(15000.00)
 
 #Thinking about making a different beggining for each player. This one would be for Taylor
 def begining():
@@ -16,13 +17,35 @@ def begining():
 	title1 = pyfiglet.figlet_format("STOP\nDROP\nHUSTLE", font = "rectangles")
 	print("====================================================================")
 	print(title1)
-	print("====================================================================")
-	print(f"You are {playerMain['name']}. Alone and without desire.")
-	print("The heaping stack of heated reviews and cold bills is pilling fast")
-	print("drenching the passion of your heart and soul: Taylor's Auto")
-	print(f'You have {days_remaining} to pay your "bills"... You can\'t fuck this up.')
-	print("====================================================================\n")
 
+	if playerMain['name'] == 'Marshall':
+		print("====================================================================")
+		print(f"You are {playerMain['name']}. It\'s just another day to be alive.")
+		print("But that won't be for much longer. Shark's been asking for returns.")
+		print("It's time to stop selling t-shirts and start selling suits.")
+		print(f'You have {days_remaining} days to come up with ' + '${:,.2f}'.format(amount_due), 'or else...')
+		print("====================================================================\n")
+
+	elif playerMain['name'] == 'Taylor':
+		print("==========================================================================")
+		print(f"You are {playerMain['name']}. Alone and without desire.")
+		print("The heaping stack of heated reviews and cold bills is pilling fast")
+		print("drenching the passion of your heart and soul: Taylor's Auto")
+		print(f'You have {days_remaining} days to pay your "bills"... ' + '${:,.2f}'.format(amount_due)+'. You can\'t fuck this up.')
+		print("==========================================================================\n")
+	elif playerMain['name'] == 'Sullivan':
+		print("===============================================================================")
+		print(f"You are {playerMain['name']}. Life at the top has finally caught up.")
+		print("Heart-stopping stress ended your career in the ER.")
+		print("Now you are old and no corp will take you in.")
+		print("While you were zonked out in the hospital,")
+		print(f'Your partner borrowed ' + '${:,.2f}'.format(amount_due) + "from a 'friend' to stay afloat.")
+		print(f"If there's one thing you know, it's money. Time to make some. You have {days_remaining} days.")
+		print("===============================================================================\n")
+	else:
+		print("CATASTROPHIC ERROR.")
+		print("Please clear cache, cookies and restart your computer.")
+		return 0
 #	story()
 
 
@@ -160,8 +183,7 @@ def update_stats():
 
 def main():
 	begining()
-
 os.system('cls' if os.name == 'nt' else 'clear')
-#main()
+
 player_picker()
 main()
